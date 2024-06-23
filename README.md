@@ -26,43 +26,39 @@ This repository contains a Node.js and Express.js backend application designed f
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-username/your-repo.git
+   ```
 
-    Install dependencies:
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-    sh
+3. Configure environment variables:
+   - Create a `.env` file in the `config` directory.
+   - Define necessary variables (e.g., database connection string).
 
-npm install
+4. Start the server:
+   ```sh
+   npm start
+   ```
 
-Configure environment variables:
+## API Documentation
 
-    Create a .env file in the config directory.
-    Define necessary variables (e.g., database connection string).
+### Basic Routes
 
-Start the server:
+- **Check Server Status**
+  - **Endpoint**: `GET /`
+  - **Response**: 
+    ```json
+    { "status": "online" }
+    ```
 
-sh
+### Product Management
 
-    npm start
-
-API Documentation
-Basic Routes
-
-    Check Server Status
-        Endpoint: GET /
-        Response:
-
-        json
-
-        { "status": "online" }
-
-Product Management
-
-    Create New Product
-        Endpoint: POST /products/items
-        Body:
-
-        json
-
+- **Create New Product**
+  - **Endpoint**: `POST /products/items`
+  - **Body**:
+    ```json
     {
       "ProductName": "example",
       "Category": "example",
@@ -75,14 +71,12 @@ Product Management
       "Barcode": "example barcode",
       "Location": "example location"
     }
+    ```
 
-Update Product by ID
-
-    Endpoint: PUT /products/items/:itemID
-    Body:
-
-    json
-
+- **Update Product by ID**
+  - **Endpoint**: `PUT /products/items/:itemID`
+  - **Body**:
+    ```json
     {
       "ProductID": 1,
       "ProductName": "updated name",
@@ -95,50 +89,47 @@ Update Product by ID
       "ContactInformation": "updated contact",
       "Location": "updated location"
     }
+    ```
 
-Delete Product by ID
+- **Delete Product by ID**
+  - **Endpoint**: `DELETE /products/items/:itemID`
 
-    Endpoint: DELETE /products/items/:itemID
+- **Get Product by ID**
+  - **Endpoint**: `GET /products/items/:itemID`
 
-Get Product by ID
+- **Get All Products**
+  - **Endpoint**: `GET /products/items`
 
-    Endpoint: GET /products/items/:itemID
+- **Search Products by Field**
+  - **Endpoint**: `GET /products/items/search`
+  - **Body**:
+    ```json
+    {
+      "filter": "Category",
+      "filterValue": "example category"
+    }
+    ```
 
-Get All Products
+### Stock Management
 
-    Endpoint: GET /products/items
+- **Update Stock by Product ID**
+  - **Endpoint**: `PUT /stock`
+  - **Body**:
+    ```json
+    {
+      "ProductID": 1,
+      "Amount": 100,
+      "LastPurchase": "2023-01-01",
+      "ExpiryDate": "2024-01-01"
+    }
+    ```
 
-Search Products by Field
-
-    Endpoint: GET /products/items/search
-    Body:
-
-    json
-
-        {
-          "filter": "Category",
-          "filterValue": "example category"
-        }
-
-Stock Management
-
-    Update Stock by Product ID
-        Endpoint: PUT /stock
-        Body:
-
-        json
-
-        {
-          "ProductID": 1,
-          "Amount": 100,
-          "LastPurchase": "2023-01-01",
-          "ExpiryDate": "2024-01-01"
-        }
-
-Contributing
+## Contributing
 
 Feel free to contribute by forking the repository and submitting pull requests for new features or bug fixes.
-License
+
+## License
 
 This project is licensed under the MIT License.
 
+---
