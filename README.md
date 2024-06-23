@@ -25,7 +25,7 @@ This repository contains a Node.js and Express.js backend application designed f
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/PhilCode-creator/Lager-System.git
    ```
 
 2. Install dependencies:
